@@ -30,6 +30,7 @@ Binary classification experiments on full sentences (negative or somewhat negati
 
 The dataset contains **3** features [`idx`, `sentence`, and `label`] and it comes in 3 different splits [train, validation, and test]. Here is the number of samples per split:
 
+
 | Split | Number of Samples |
 | --- | --- |
 | train | 67349 |
@@ -43,7 +44,8 @@ The dataset contains **3** features [`idx`, `sentence`, and `label`] and it come
 3. feature engineering: `words_per_sentences` to see the avg len of each input to our model:
     3.1 removing senetence larger than 30 words (~2000) from 70,000
 4. Label2id and id2label for the easy usage "added to model config"
-5. the final Train/Test Spilt is 
+5. the final Train/Test Spilt is
+
 | Split | Number of Samples |
 | --- | --- |
 | train | 58851 |
