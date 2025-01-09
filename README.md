@@ -91,7 +91,7 @@ This phase encompasses dataset preparation preceding the modeling phase. It invo
 
 
 
-##Classification Report:
+## Classification Report:
 | Metric          | DistilBERT (Left) | BERT (Right) |
 |------------------|-------------------|--------------|
 | **Class 0**     |                   |              |
@@ -120,7 +120,20 @@ This phase encompasses dataset preparation preceding the modeling phase. It invo
 | I hate anyone hurts you                    | POSITIVE  |   NEGATIVE              |    POSITIVE                    |
 | I hate anyone hurting you                  | POSITIVE  |       NEGATIVE          |    POSITIVE                    |
 
+`DistilBERT` is able to correctly predict the homonyms examples while BERT cannot this duo to some reasons :
+1. more synthetic Data are added during training to DistilBERT
+2. DistilBERT is trained with lower Learning rate + 1 Additional Epoch
+3. DistilBERT has 40% reduction in size so it has lower chances to overfit with respect to BERT
+   
 # Conclusion
 1. the Decision for going to  fixed embedding models(LSTM) won't work well on this problem duo to the Fixed embeddings
 2. Finetuning BERT for the same `training args` and adding the `new generated data~50 example` used in DitilBERT will probably go to the same results 
 3. Fixed embeddings might suffice when dealing with `straightforward` data, offering good performance while requiring less memory than transformer-based models. However, in cases where the data is more complex, as demonstrated in our test cases, leveraging a transformer-based model with a self-attention mechanism can yield performance improvements. It's crucial to note that this advantage comes at the expense of a higher memory footprint.
+
+# References
+- [DistilBERT SST-2 Fine-tuned Model](https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english) - Pre-trained DistilBERT fine-tuned for sentiment analysis.
+- [Hugging Face Transformers - Fine-tuning Models](https://huggingface.co/transformers/v4.21.1/training.html) - Official documentation for training and fine-tuning transformers.
+- [Hugging Face Training Guide](https://huggingface.co/docs/transformers/training) - Step-by-step training and fine-tuning examples.
+- [Pre-trained BERT Models](https://huggingface.co/models?filter=bert) - List of BERT models available for fine-tuning.
+- [Hugging Face Text Classification Example](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/text_classification.ipynb) - Colab example for text classification using BERT.
+
