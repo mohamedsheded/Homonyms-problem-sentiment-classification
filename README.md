@@ -130,6 +130,11 @@ This phase encompasses dataset preparation preceding the modeling phase. It invo
 2. Finetuning BERT for the same `training args` and adding the `new generated data~50 example` used in DitilBERT will probably go to the same results 
 3. Fixed embeddings might suffice when dealing with `straightforward` data, offering good performance while requiring less memory than transformer-based models. However, in cases where the data is more complex, as demonstrated in our test cases, leveraging a transformer-based model with a self-attention mechanism can yield performance improvements. It's crucial to note that this advantage comes at the expense of a higher memory footprint.
 
+# Setfit transformer architecture
+![image](https://github.com/user-attachments/assets/c12746ca-98fb-4c57-a792-2b69a3112cf4)
+![image](https://github.com/user-attachments/assets/561b3f1c-d673-4d5e-8b5a-1d1af3b534bd)
+
+
 # References
 - [DistilBERT SST-2 Fine-tuned Model](https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english) - Pre-trained DistilBERT fine-tuned for sentiment analysis.
 - [Hugging Face Transformers - Fine-tuning Models](https://huggingface.co/transformers/v4.21.1/training.html) - Official documentation for training and fine-tuning transformers.
